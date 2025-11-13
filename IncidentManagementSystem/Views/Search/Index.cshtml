@@ -1,0 +1,300 @@
+@model IncidentManagementSystem.ViewModels.AdvancedSearchViewModel
+@{
+    ViewData["Title"] = "Advanced Ticket Search";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-search me-2"></i>Advanced Search</h2>
+                <div class="text-muted">
+                    <small>Individual Functionality: AND/OR Search with Recent Ordering</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Form -->
+    <form asp-action="Search" method="post" id="searchForm">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-filter me-2"></i>Search Criteria</h5>
+            </div>
+            <div class="card-body">
+                <!-- Display validation summary for errors -->
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                
+                <div class="row">
+                    <!-- Search Text -->
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="SearchText" class="form-label fw-bold"></label>
+                        <input asp-for="SearchText" class="form-control" placeholder="Enter search terms (supports AND/OR operations)" />
+                        <div class="form-text">
+                            <strong>Examples:</strong> 
+                            @foreach (var example in IncidentManagementSystem.ViewModels.AdvancedSearchViewModel.SearchExamples)
+                            {
+                                <code class="me-2">@example</code>
+                            }
+                        </div>
+                        <span asp-validation-for="SearchText" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Status Filter -->
+                    <div class="col-md-3 mb-3">
+                        <label asp-for="Status" class="form-label"></label>
+                        <select asp-for="Status" class="form-select">
+                            <option value="">All Statuses</option>
+                            <option value="@TicketStatus.Open">Open</option>
+                            <option value="@TicketStatus.Resolved">Resolved</option>
+                            <option value="@TicketStatus.Closed">Closed</option>
+                        </select>
+                    </div>
+
+                    <!-- Priority Filter -->
+                    <div class="col-md-3 mb-3">
+                        <label asp-for="Priority" class="form-label"></label>
+                        <select asp-for="Priority" class="form-select">
+                            <option value="">All Priorities</option>
+                            <option value="@TicketPriority.Low">Low</option>
+                            <option value="@TicketPriority.Medium">Medium</option>
+                            <option value="@TicketPriority.High">High</option>
+                            <option value="@TicketPriority.Critical">Critical</option>
+                        </select>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="col-md-3 mb-3">
+                        <label asp-for="Category" class="form-label"></label>
+                        <select asp-for="Category" class="form-select">
+                            <option value="">All Categories</option>
+                            <option value="@TicketCategory.Hardware">Hardware</option>
+                            <option value="@TicketCategory.Software">Software</option>
+                            <option value="@TicketCategory.Network">Network</option>
+                            <option value="@TicketCategory.Access">Access</option>
+                            <option value="@TicketCategory.Other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Assignee Filter (Service Desk Only) -->
+                    @if (Model.AvailableAssignees.Any())
+                    {
+                        <div class="col-md-3 mb-3">
+                            <label asp-for="AssigneeId" class="form-label"></label>
+                            <select asp-for="AssigneeId" class="form-select">
+                                <option value="">All Assignees</option>
+                                @foreach (var assignee in Model.AvailableAssignees)
+                                {
+                                    <option value="@assignee.Id">@assignee.DisplayName</option>
+                                }
+                            </select>
+                        </div>
+                    }
+                </div>
+
+                <div class="row">
+                    <!-- Date Range -->
+                    <div class="col-md-3 mb-3">
+                        <label asp-for="DateFrom" class="form-label"></label>
+                        <input asp-for="DateFrom" type="date" class="form-control" />
+                        <span asp-validation-for="DateFrom" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label asp-for="DateTo" class="form-label"></label>
+                        <input asp-for="DateTo" type="date" class="form-control" />
+                        <span asp-validation-for="DateTo" class="text-danger"></span>
+                    </div>
+
+                    <!-- Page Size -->
+                    <div class="col-md-3 mb-3">
+                        <label for="PageSize" class="form-label">Results Per Page</label>
+                        <select asp-for="PageSize" class="form-select">
+                            <option value="10">10</option>
+                            <option value="20" selected>20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3 mb-3 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary me-2">
+                            <i class="fas fa-search me-1"></i>Search
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                            <i class="fas fa-times me-1"></i>Clear
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden page field for pagination -->
+        <input type="hidden" asp-for="Page" />
+    </form>
+
+    <!-- Search Results -->
+    @if (Model.HasSearched)
+    {
+        <div class="card">
+            <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    <i class="fas fa-list me-2"></i>
+                    Search Results (@Model.TotalResults found) - Ordered by Most Recent
+                </h5>
+                @if (Model.TotalResults > 0)
+                {
+                    <small>Page @Model.Page of @Model.TotalPages</small>
+                }
+            </div>
+            <div class="card-body">
+                @if (Model.Results.Any())
+                {
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Subject</th>
+                                    <th>Status</th>
+                                    <th>Priority</th>
+                                    <th>Category</th>
+                                    <th>Created</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var ticket in Model.Results)
+                                {
+                                    <tr>
+                                        <td>
+                                            <span class="badge bg-secondary">#@ticket.Id.Substring(ticket.Id.Length - 6)</span>
+                                        </td>
+                                        <td>
+                                            <strong>@ticket.Title</strong>
+                                            @if (!string.IsNullOrEmpty(ticket.Description) && ticket.Description.Length > 50)
+                                            {
+                                                <br><small class="text-muted">@ticket.Description.Substring(0, 50)...</small>
+                                            }
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-@(ticket.Status == TicketStatus.Open ? "warning" : 
+                                                                      ticket.Status == TicketStatus.Resolved ? "success" : "secondary")">
+                                                @ticket.Status
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-@(ticket.Priority == TicketPriority.Critical ? "danger" : 
+                                                                      ticket.Priority == TicketPriority.High ? "warning" : 
+                                                                      ticket.Priority == TicketPriority.Medium ? "info" : "secondary")">
+                                                @ticket.Priority
+                                            </span>
+                                        </td>
+                                        <td>@ticket.Category</td>
+                                        <td>
+                                            <small>@ticket.CreatedAt.ToString("yyyy-MM-dd HH:mm")</small>
+                                        </td>
+                                        <td>
+                                            <a href="/Dashboard/ViewTicket/@ticket.Id" class="btn btn-sm btn-outline-primary">
+                                                <i class="fas fa-eye me-1"></i>View
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    @if (Model.TotalPages > 1)
+                    {
+                        <nav aria-label="Search results pagination">
+                            <ul class="pagination justify-content-center">
+                                @if (Model.HasPreviousPage)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="javascript:void(0)" onclick="goToPage(@(Model.Page - 1))">
+                                            <i class="fas fa-chevron-left"></i> Previous
+                                        </a>
+                                    </li>
+                                }
+
+                                @for (int i = Math.Max(1, Model.Page - 2); i <= Math.Min(Model.TotalPages, Model.Page + 2); i++)
+                                {
+                                    <li class="page-item @(i == Model.Page ? "active" : "")">
+                                        <a class="page-link" href="javascript:void(0)" onclick="goToPage(@i)">@i</a>
+                                    </li>
+                                }
+
+                                @if (Model.HasNextPage)
+                                {
+                                    <li class="page-item">
+                                        <a class="page-link" href="javascript:void(0)" onclick="goToPage(@(Model.Page + 1))">
+                                            Next <i class="fas fa-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </nav>
+                    }
+                }
+                else
+                {
+                    <div class="text-center py-4">
+                        <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                        <h5 class="text-muted">No tickets found matching your search criteria.</h5>
+                        <p class="text-muted">Try adjusting your search terms or filters.</p>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-body text-center py-5">
+                <i class="fas fa-search fa-4x text-muted mb-4"></i>
+                <h4 class="text-muted">Advanced Ticket Search</h4>
+                <p class="text-muted">Use the search form above to find tickets with powerful AND/OR operations.</p>
+                <p class="text-muted"><strong>Results are automatically ordered by most recent first.</strong></p>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function goToPage(page) {
+            var pageField = document.querySelector('input[name="Page"]');
+            if (pageField) {
+                pageField.value = page;
+                document.getElementById('searchForm').submit();
+            }
+        }
+
+        function clearForm() {
+            var form = document.getElementById('searchForm');
+            form.reset();
+            var pageField = document.querySelector('input[name="Page"]');
+            if (pageField) {
+                pageField.value = 1;
+            }
+        }
+
+        // Auto-submit on Enter in search box
+        var searchTextInput = document.querySelector('input[name="SearchText"]');
+        if (searchTextInput) {
+            searchTextInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    document.getElementById('searchForm').submit();
+                }
+            });
+        }
+    </script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

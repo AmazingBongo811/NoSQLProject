@@ -1,0 +1,53 @@
+Id,Username,Email,FirstName,LastName,Role,Department,CreatedAt,UpdatedAt,IsActive,LastLogin
+671e9a2b8f1d2e3a4b5c6d7e,jsmith,john.smith@company.com,John,Smith,Regular,Information Technology,2024-10-20 08:30:00,2024-10-27 14:22:00,True,2024-10-27 09:15:00
+671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary,Johnson,ServiceDesk,Information Technology,2024-10-18 10:15:00,2024-10-27 11:45:00,True,2024-10-27 08:30:00
+671e9a2b8f1d2e3a4b5c6d80,rwilliams,robert.williams@company.com,Robert,Williams,Regular,Human Resources,2024-10-19 09:22:00,2024-10-26 16:30:00,True,2024-10-26 13:20:00
+671e9a2b8f1d2e3a4b5c6d81,pbrown,patricia.brown@company.com,Patricia,Brown,Regular,Finance,2024-10-21 14:45:00,2024-10-27 10:15:00,True,2024-10-27 07:45:00
+671e9a2b8f1d2e3a4b5c6d82,mjones,michael.jones@company.com,Michael,Jones,ServiceDesk,Information Technology,2024-10-17 11:30:00,2024-10-27 15:10:00,True,2024-10-27 12:00:00
+671e9a2b8f1d2e3a4b5c6d83,lgarcia,linda.garcia@company.com,Linda,Garcia,Regular,Operations,2024-10-22 13:20:00,2024-10-27 09:30:00,True,2024-10-27 08:00:00
+671e9a2b8f1d2e3a4b5c6d84,dmiller,david.miller@company.com,David,Miller,Regular,Marketing,2024-10-20 15:40:00,2024-10-26 17:25:00,True,2024-10-26 14:30:00
+671e9a2b8f1d2e3a4b5c6d85,bdavis,barbara.davis@company.com,Barbara,Davis,ServiceDesk,Customer Service,2024-10-19 08:10:00,2024-10-27 13:40:00,True,2024-10-27 10:20:00
+671e9a2b8f1d2e3a4b5c6d86,crodriguez,carlos.rodriguez@company.com,Carlos,Rodriguez,Regular,Sales,2024-10-23 12:15:00,2024-10-27 08:45:00,True,2024-10-27 07:30:00
+671e9a2b8f1d2e3a4b5c6d87,smartinez,susan.martinez@company.com,Susan,Martinez,Regular,Legal,2024-10-18 16:50:00,2024-10-26 19:15:00,True,2024-10-26 16:45:00
+671e9a2b8f1d2e3a4b5c6d88,jhernandez,james.hernandez@company.com,James,Hernandez,Regular,Procurement,2024-10-21 10:05:00,2024-10-27 12:30,True,2024-10-27 09:45:00
+671e9a2b8f1d2e3a4b5c6d89,elopez,elizabeth.lopez@company.com,Elizabeth,Lopez,ServiceDesk,Facilities,2024-10-20 14:25:00,2024-10-27 11:20:00,True,2024-10-27 08:15:00
+671e9a2b8f1d2e3a4b5c6d8a,rgonzalez,robert.gonzalez@company.com,Robert,Gonzalez,Regular,Information Technology,2024-10-19 09:40:00,2024-10-26 15:50:00,True,2024-10-26 12:30:00
+671e9a2b8f1d2e3a4b5c6d8b,jwilson,jennifer.wilson@company.com,Jennifer,Wilson,Regular,Human Resources,2024-10-22 11:55:00,2024-10-27 14:05:00,True,2024-10-27 10:40:00
+671e9a2b8f1d2e3a4b5c6d8c,aanderson,antonio.anderson@company.com,Antonio,Anderson,ServiceDesk,Information Technology,2024-10-18 13:30:00,2024-10-27 16:25:00,True,2024-10-27 13:15:00
+671e9a2b8f1d2e3a4b5c6d8d,kthomas,karen.thomas@company.com,Karen,Thomas,Regular,Finance,2024-10-21 08:45:00,2024-10-26 18:30:00,True,2024-10-26 15:20:00
+671e9a2b8f1d2e3a4b5c6d8e,mtaylor,mark.taylor@company.com,Mark,Taylor,Regular,Operations,2024-10-20 12:10:00,2024-10-27 09:55:00,True,2024-10-27 07:00:00
+671e9a2b8f1d2e3a4b5c6d8f,dmoore,donna.moore@company.com,Donna,Moore,ServiceDesk,Customer Service,2024-10-19 15:20:00,2024-10-27 12:45:00,True,2024-10-27 11:30:00
+671e9a2b8f1d2e3a4b5c6d90,rjackson,robert.jackson@company.com,Robert,Jackson,Regular,Marketing,2024-10-23 09:35:00,2024-10-26 20:10:00,True,2024-10-26 17:00:00
+671e9a2b8f1d2e3a4b5c6d91,lmartin,lisa.martin@company.com,Lisa,Martin,Regular,Sales,2024-10-18 14:40:00,2024-10-27 15:35:00,True,2024-10-27 12:50:00
+671e9a2b8f1d2e3a4b5c6d92,clee,charles.lee@company.com,Charles,Lee,Regular,Legal,2024-10-22 10:25:00,2024-10-27 08:20:00,True,2024-10-27 06:45:00
+671e9a2b8f1d2e3a4b5c6d93,nperez,nancy.perez@company.com,Nancy,Perez,ServiceDesk,Procurement,2024-10-20 16:15:00,2024-10-26 14:40:00,True,2024-10-26 11:15:00
+671e9a2b8f1d2e3a4b5c6d94,kthompson,kevin.thompson@company.com,Kevin,Thompson,Regular,Facilities,2024-10-19 11:50:00,2024-10-27 13:25:00,True,2024-10-27 10:05:00
+671e9a2b8f1d2e3a4b5c6d95,swhite,sarah.white@company.com,Sarah,White,Regular,Information Technology,2024-10-21 13:05,2024-10-26 17:45:00,True,2024-10-26 14:20:00
+671e9a2b8f1d2e3a4b5c6d96,dharris,daniel.harris@company.com,Daniel,Harris,ServiceDesk,Human Resources,2024-10-18 08:30,2024-10-27 11:10:00,True,2024-10-27 08:55:00
+671e9a2b8f1d2e3a4b5c6d97,msanchez,maria.sanchez@company.com,Maria,Sanchez,Regular,Finance,2024-10-23 14:20,2024-10-27 16:30:00,True,2024-10-27 13:40:00
+671e9a2b8f1d2e3a4b5c6d98,jclark,john.clark@company.com,John,Clark,Regular,Operations,2024-10-20 09:15,2024-10-26 19:20:00,True,2024-10-26 16:10:00
+671e9a2b8f1d2e3a4b5c6d99,kramirez,kimberly.ramirez@company.com,Kimberly,Ramirez,Regular,Marketing,2024-10-19 12:40,2024-10-27 14:50:00,True,2024-10-27 11:25:00
+671e9a2b8f1d2e3a4b5c6d9a,tlewis,thomas.lewis@company.com,Thomas,Lewis,ServiceDesk,Customer Service,2024-10-22 15:55,2024-10-26 16:15,True,2024-10-26 13:05:00
+671e9a2b8f1d2e3a4b5c6d9b,drobinson,deborah.robinson@company.com,Deborah,Robinson,Regular,Sales,2024-10-18 10:20,2024-10-27 12:35:00,True,2024-10-27 09:20:00
+671e9a2b8f1d2e3a4b5c6d9c,mwalker,michael.walker@company.com,Michael,Walker,Regular,Legal,2024-10-21 11:45,2024-10-26 18:00,True,2024-10-26 15:35:00
+671e9a2b8f1d2e3a4b5c6d9d,lyoung,linda.young@company.com,Linda,Young,Regular,Procurement,2024-10-20 13:30,2024-10-27 10:40,True,2024-10-27 07:25:00
+671e9a2b8f1d2e3a4b5c6d9e,aallen,anthony.allen@company.com,Anthony,Allen,ServiceDesk,Facilities,2024-10-19 16:05,2024-10-26 20:25,True,2024-10-26 17:15:00
+671e9a2b8f1d2e3a4b5c6d9f,bking,betty.king@company.com,Betty,King,Regular,Information Technology,2024-10-23 08:50,2024-10-27 15:20,True,2024-10-27 12:10:00
+671e9a2b8f1d2e3a4b5c6da0,jwright,james.wright@company.com,James,Wright,Regular,Human Resources,2024-10-18 12:25,2024-10-26 14:45,True,2024-10-26 11:30:00
+671e9a2b8f1d2e3a4b5c6da1,hscott,helen.scott@company.com,Helen,Scott,Regular,Finance,2024-10-22 14:10,2024-10-27 09:15,True,2024-10-27 06:00:00
+671e9a2b8f1d2e3a4b5c6da2,rtorres,ronald.torres@company.com,Ronald,Torres,ServiceDesk,Operations,2024-10-20 15:35,2024-10-26 17:50,True,2024-10-26 14:35:00
+671e9a2b8f1d2e3a4b5c6da3,snguyen,sandra.nguyen@company.com,Sandra,Nguyen,Regular,Marketing,2024-10-19 09:00,2024-10-27 11:55,True,2024-10-27 08:40:00
+671e9a2b8f1d2e3a4b5c6da4,phill,paul.hill@company.com,Paul,Hill,Regular,Customer Service,2024-10-21 10:45,2024-10-26 19:05,True,2024-10-26 15:50:00
+671e9a2b8f1d2e3a4b5c6da5,cflores,carol.flores@company.com,Carol,Flores,Regular,Sales,2024-10-18 13:15,2024-10-27 14:25,True,2024-10-27 11:10:00
+671e9a2b8f1d2e3a4b5c6da6,egreen,edward.green@company.com,Edward,Green,ServiceDesk,Legal,2024-10-23 11:30,2024-10-26 16:40,True,2024-10-26 13:25:00
+671e9a2b8f1d2e3a4b5c6da7,radams,ruth.adams@company.com,Ruth,Adams,Regular,Procurement,2024-10-20 14:55,2024-10-27 13:10,True,2024-10-27 10:55:00
+671e9a2b8f1d2e3a4b5c6da8,rnelson,raymond.nelson@company.com,Raymond,Nelson,Regular,Facilities,2024-10-19 08:40,2024-10-26 15:25,True,2024-10-26 12:15:00
+671e9a2b8f1d2e3a4b5c6da9,mbaker,michelle.baker@company.com,Michelle,Baker,Regular,Information Technology,2024-10-22 12:20,2024-10-27 16:45,True,2024-10-27 13:30:00
+671e9a2b8f1d2e3a4b5c6daa,ghall,gary.hall@company.com,Gary,Hall,ServiceDesk,Human Resources,2024-10-18 15:45,2024-10-26 18:55,True,2024-10-26 15:40:00
+671e9a2b8f1d2e3a4b5c6dab,lrivera,laura.rivera@company.com,Laura,Rivera,Regular,Finance,2024-10-21 09:10,2024-10-27 12:00,True,2024-10-27 08:45:00
+671e9a2b8f1d2e3a4b5c6dac,scampbell,steven.campbell@company.com,Steven,Campbell,Regular,Operations,2024-10-20 11:35,2024-10-26 20:15,True,2024-10-26 17:05:00
+671e9a2b8f1d2e3a4b5c6dad,dmitchell,dorothy.mitchell@company.com,Dorothy,Mitchell,Regular,Marketing,2024-10-19 13:50,2024-10-27 10:25,True,2024-10-27 07:10:00
+671e9a2b8f1d2e3a4b5c6dae,acarter,andrew.carter@company.com,Andrew,Carter,Regular,Customer Service,2024-10-23 10:15,2024-10-26 14:30,True,2024-10-26 11:20:00
+671e9a2b8f1d2e3a4b5c6daf,kroberts,kimberly.roberts@company.com,Kimberly,Roberts,ServiceDesk,Sales,2024-10-18 16:30,2024-10-27 15:45,True,2024-10-27 12:35:00
+671e9a2b8f1d2e3a4b5c6db0,jgomez,jose.gomez@company.com,Jose,Gomez,Regular,Legal,2024-10-22 08:05,2024-10-26 17:20,True,2024-10-26 14:10:00
+671e9a2b8f1d2e3a4b5c6db1,ephillips,elizabeth.phillips@company.com,Elizabeth,Phillips,Regular,Procurement,2024-10-20 12:50,2024-10-27 09:40,True,2024-10-27 06:25:00

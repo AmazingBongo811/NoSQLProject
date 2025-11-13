@@ -1,0 +1,53 @@
+TicketId,Action,PerformedByUserId,PerformedByUsername,PerformedByEmail,PerformedByFullName,Timestamp,Description,OldValue,NewValue
+671e9b1a8f1d2e3a4b5c6d7e,Created,671e9a2b8f1d2e3a4b5c6d7e,jsmith,john.smith@company.com,John Smith,2024-10-27 08:30:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d7e,Assigned,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-27 09:00:00,Ticket assigned to service desk,Unassigned,Mary Johnson
+671e9b1a8f1d2e3a4b5c6d7e,Priority Updated,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-27 10:15:00,Priority escalated due to business impact,Medium,High
+671e9b1a8f1d2e3a4b5c6d7f,Created,671e9a2b8f1d2e3a4b5c6d80,rwilliams,robert.williams@company.com,Robert Williams,2024-10-27 09:15:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d7f,Assigned,671e9a2b8f1d2e3a4b5c6d82,mjones,michael.jones@company.com,Michael Jones,2024-10-27 09:30:00,Ticket assigned to IT support,Unassigned,Michael Jones
+671e9b1a8f1d2e3a4b5c6d80,Created,671e9a2b8f1d2e3a4b5c6d81,pbrown,patricia.brown@company.com,Patricia Brown,2024-10-26 14:45:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d80,Assigned,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-26 15:00:00,Assigned for software installation,Unassigned,Mary Johnson
+671e9b1a8f1d2e3a4b5c6d80,Status Updated,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-27 10:30:00,Installation in progress,Open,In Progress
+671e9b1a8f1d2e3a4b5c6d80,Status Updated,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-27 11:20:00,Software installation completed,In Progress,Resolved
+671e9b1a8f1d2e3a4b5c6d80,Closed,671e9a2b8f1d2e3a4b5c6d81,pbrown,patricia.brown@company.com,Patricia Brown,2024-10-27 11:25:00,User confirmed resolution,Resolved,Closed
+671e9b1a8f1d2e3a4b5c6d81,Created,671e9a2b8f1d2e3a4b5c6d83,lgarcia,linda.garcia@company.com,Linda Garcia,2024-10-27 10:30:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d81,Assigned,671e9a2b8f1d2e3a4b5c6d85,bdavis,barbara.davis@company.com,Barbara Davis,2024-10-27 11:00:00,Critical network issue assigned,Unassigned,Barbara Davis
+671e9b1a8f1d2e3a4b5c6d82,Created,671e9a2b8f1d2e3a4b5c6d84,dmiller,david.miller@company.com,David Miller,2024-10-27 13:20:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d83,Created,671e9a2b8f1d2e3a4b5c6d86,crodriguez,carlos.rodriguez@company.com,Carlos Rodriguez,2024-10-27 07:45:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d83,Assigned,671e9a2b8f1d2e3a4b5c6d8c,aanderson,antonio.anderson@company.com,Antonio Anderson,2024-10-27 08:15:00,Email sync issue assigned,Unassigned,Antonio Anderson
+671e9b1a8f1d2e3a4b5c6d83,Priority Updated,671e9a2b8f1d2e3a4b5c6d8c,aanderson,antonio.anderson@company.com,Antonio Anderson,2024-10-27 09:30:00,Escalated due to sales impact,Medium,High
+671e9b1a8f1d2e3a4b5c6d83,Status Updated,671e9a2b8f1d2e3a4b5c6d8c,aanderson,antonio.anderson@company.com,Antonio Anderson,2024-10-27 12:00:00,Troubleshooting Exchange settings,Open,In Progress
+671e9b1a8f1d2e3a4b5c6d84,Created,671e9a2b8f1d2e3a4b5c6d87,smartinez,susan.martinez@company.com,Susan Martinez,2024-10-26 16:50:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d84,Assigned,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-26 17:15:00,Critical application issue assigned,Unassigned,Mary Johnson
+671e9b1a8f1d2e3a4b5c6d84,Status Updated,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-27 09:00:00,Investigating memory leak,Open,In Progress
+671e9b1a8f1d2e3a4b5c6d84,Status Updated,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-27 10:45:00,Patch applied successfully,In Progress,Resolved
+671e9b1a8f1d2e3a4b5c6d84,Status Updated,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-27 12:30:00,User confirmed stability,Resolved,Closed
+671e9b1a8f1d2e3a4b5c6d84,Reopened,671e9a2b8f1d2e3a4b5c6d87,smartinez,susan.martinez@company.com,Susan Martinez,2024-10-27 12:32:00,Issue occurred again,Closed,Open
+671e9b1a8f1d2e3a4b5c6d84,Status Updated,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-27 12:35:00,Additional monitoring added,Open,Closed
+671e9b1a8f1d2e3a4b5c6d85,Created,671e9a2b8f1d2e3a4b5c6d88,jhernandez,james.hernandez@company.com,James Hernandez,2024-10-27 08:15:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d85,Assigned,671e9a2b8f1d2e3a4b5c6d82,mjones,michael.jones@company.com,Michael Jones,2024-10-27 08:45:00,Performance issue assigned,Unassigned,Michael Jones
+671e9b1a8f1d2e3a4b5c6d85,Status Updated,671e9a2b8f1d2e3a4b5c6d82,mjones,michael.jones@company.com,Michael Jones,2024-10-27 13:20:00,Running diagnostics,Open,In Progress
+671e9b1a8f1d2e3a4b5c6d86,Created,671e9a2b8f1d2e3a4b5c6d8a,rgonzalez,robert.gonzalez@company.com,Robert Gonzalez,2024-10-27 06:30:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d86,Assigned,671e9a2b8f1d2e3a4b5c6d89,elopez,elizabeth.lopez@company.com,Elizabeth Lopez,2024-10-27 07:00:00,VPN connection issue assigned,Unassigned,Elizabeth Lopez
+671e9b1a8f1d2e3a4b5c6d86,Status Updated,671e9a2b8f1d2e3a4b5c6d89,elopez,elizabeth.lopez@company.com,Elizabeth Lopez,2024-10-27 11:00:00,Checking server configuration,Open,In Progress
+671e9b1a8f1d2e3a4b5c6d86,Priority Updated,671e9a2b8f1d2e3a4b5c6d89,elopez,elizabeth.lopez@company.com,Elizabeth Lopez,2024-10-27 13:15:00,Issue persists - escalated,Medium,High
+671e9b1a8f1d2e3a4b5c6d87,Created,671e9a2b8f1d2e3a4b5c6d8b,jwilson,jennifer.wilson@company.com,Jennifer Wilson,2024-10-27 09:45:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d87,Assigned,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-27 10:00:00,Database access issue assigned,Unassigned,Mary Johnson
+671e9b1a8f1d2e3a4b5c6d88,Created,671e9a2b8f1d2e3a4b5c6d8d,kthomas,karen.thomas@company.com,Karen Thomas,2024-10-26 11:20:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d88,Assigned,671e9a2b8f1d2e3a4b5c6d8c,aanderson,antonio.anderson@company.com,Antonio Anderson,2024-10-26 11:45:00,File sharing issue assigned,Unassigned,Antonio Anderson
+671e9b1a8f1d2e3a4b5c6d88,Status Updated,671e9a2b8f1d2e3a4b5c6d8c,aanderson,antonio.anderson@company.com,Antonio Anderson,2024-10-27 10:30:00,Updating network permissions,Open,In Progress
+671e9b1a8f1d2e3a4b5c6d88,Status Updated,671e9a2b8f1d2e3a4b5c6d8c,aanderson,antonio.anderson@company.com,Antonio Anderson,2024-10-27 10:45:00,Permissions updated successfully,In Progress,Resolved
+671e9b1a8f1d2e3a4b5c6d89,Created,671e9a2b8f1d2e3a4b5c6d8e,mtaylor,mark.taylor@company.com,Mark Taylor,2024-10-27 12:10:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d8a,Created,671e9a2b8f1d2e3a4b5c6d8f,dmoore,donna.moore@company.com,Donna Moore,2024-10-27 14:30:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d8a,Assigned,671e9a2b8f1d2e3a4b5c6d85,bdavis,barbara.davis@company.com,Barbara Davis,2024-10-27 14:45:00,Keyboard malfunction assigned,Unassigned,Barbara Davis
+671e9b1a8f1d2e3a4b5c6d8b,Created,671e9a2b8f1d2e3a4b5c6d90,rjackson,robert.jackson@company.com,Robert Jackson,2024-10-27 08:00:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d8b,Assigned,671e9a2b8f1d2e3a4b5c6d82,mjones,michael.jones@company.com,Michael Jones,2024-10-27 08:30:00,License renewal assigned,Unassigned,Michael Jones
+671e9b1a8f1d2e3a4b5c6d8b,Status Updated,671e9a2b8f1d2e3a4b5c6d82,mjones,michael.jones@company.com,Michael Jones,2024-10-27 13:15:00,Contacting procurement,Open,In Progress
+671e9b1a8f1d2e3a4b5c6d8c,Created,671e9a2b8f1d2e3a4b5c6d91,lmartin,lisa.martin@company.com,Lisa Martin,2024-10-26 18:45:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d8c,Assigned,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-26 19:00:00,Critical backup failure assigned,Unassigned,Mary Johnson
+671e9b1a8f1d2e3a4b5c6d8c,Priority Updated,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-26 19:15:00,Escalated to critical priority,High,Critical
+671e9b1a8f1d2e3a4b5c6d8c,Status Updated,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-27 08:30:00,Investigating storage issues,Open,In Progress
+671e9b1a8f1d2e3a4b5c6d8c,Status Updated,671e9a2b8f1d2e3a4b5c6d7f,mjohnson,mary.johnson@company.com,Mary Johnson,2024-10-27 10:00:00,Storage expansion in progress,In Progress,In Progress
+671e9b1a8f1d2e3a4b5c6d8d,Created,671e9a2b8f1d2e3a4b5c6d92,clee,charles.lee@company.com,Charles Lee,2024-10-26 10:25:00,Ticket created,,
+671e9b1a8f1d2e3a4b5c6d8d,Assigned,671e9a2b8f1d2e3a4b5c6d8c,aanderson,antonio.anderson@company.com,Antonio Anderson,2024-10-26 10:45:00,Antivirus false positive assigned,Unassigned,Antonio Anderson
+671e9b1a8f1d2e3a4b5c6d8d,Status Updated,671e9a2b8f1d2e3a4b5c6d8c,aanderson,antonio.anderson@company.com,Antonio Anderson,2024-10-27 09:00:00,Whitelisting shared folders,Open,In Progress
+671e9b1a8f1d2e3a4b5c6d8d,Status Updated,671e9a2b8f1d2e3a4b5c6d8c,aanderson,antonio.anderson@company.com,Antonio Anderson,2024-10-27 09:15:00,Exclusions added successfully,In Progress,Resolved

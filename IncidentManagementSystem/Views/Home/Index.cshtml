@@ -1,0 +1,124 @@
+﻿@{
+    ViewData["Title"] = "Incident Management System";
+}
+
+<div class="hero-section text-center py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4 fw-bold text-primary mb-4">
+                    <i class="fas fa-shield-alt me-3"></i>Incident Management System
+                </h1>
+                <p class="lead mb-4">
+                    Streamline your incident reporting and resolution process with our comprehensive management system.
+                </p>
+                
+                @if (User.Identity?.IsAuthenticated != true)
+                {
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <a asp-controller="Auth" asp-action="Login" class="btn btn-primary btn-lg px-4 gap-3">
+                            <i class="fas fa-sign-in-alt me-2"></i>Login to Get Started
+                        </a>
+                    </div>
+                }
+                else
+                {
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        @if (User.IsInRole("ServiceDesk"))
+                        {
+                            <a asp-controller="ServiceDesk" asp-action="Index" class="btn btn-primary btn-lg px-4">
+                                <i class="fas fa-tachometer-alt me-2"></i>Go to Service Desk Dashboard
+                            </a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Dashboard" asp-action="Index" class="btn btn-primary btn-lg px-4">
+                                <i class="fas fa-tachometer-alt me-2"></i>Go to My Dashboard
+                            </a>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-ticket-alt fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="card-title">Easy Ticket Creation</h5>
+                    <p class="card-text">Submit incident reports quickly with our intuitive form system and track their progress in real-time.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-users fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="card-title">Team Collaboration</h5>
+                    <p class="card-text">Seamless communication between users and service desk teams with comments and status updates.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-chart-bar fa-3x text-primary"></i>
+                    </div>
+                    <h5 class="card-title">Analytics & Reports</h5>
+                    <p class="card-text">Comprehensive reporting and analytics to track performance and identify improvement areas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (User.Identity?.IsAuthenticated != true)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Ready to get started?</h5>
+                        <p class="card-text">Login with your credentials to access the incident management system.</p>
+                        <a asp-controller="Auth" asp-action="Login" class="btn btn-outline-primary">
+                            <i class="fas fa-sign-in-alt me-2"></i>Login Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        margin: -24px -15px 0 -15px;
+    }
+    
+    .hero-section .text-primary {
+        color: white !important;
+    }
+    
+    .card {
+        border: none;
+        transition: transform 0.2s;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+</style>

@@ -1,0 +1,342 @@
+@model IncidentManagementSystem.Models.Ticket
+@{
+    ViewData["Title"] = $"Ticket #{Model.Id.Substring(0, 8)}";
+}
+
+<div class="container-fluid">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a asp-action="Index">
+                            <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a asp-action="MyTickets">My Tickets</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Ticket #@Model.Id.Substring(0, 8)</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Ticket Details -->
+        <div class="col-lg-8 mb-4">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0">
+                            <i class="fas fa-ticket-alt me-2"></i>Ticket #@Model.Id.Substring(0, 8)
+                        </h4>
+                        <div>
+                            @if (Model.Status == "Open")
+                            {
+                                <span class="badge bg-warning fs-6">
+                                    <i class="fas fa-clock me-1"></i>@Model.Status
+                                </span>
+                            }
+                            else if (Model.Status == "In Progress")
+                            {
+                                <span class="badge bg-info fs-6">
+                                    <i class="fas fa-cog me-1"></i>@Model.Status
+                                </span>
+                            }
+                            else if (Model.Status == "Resolved")
+                            {
+                                <span class="badge bg-success fs-6">
+                                    <i class="fas fa-check me-1"></i>@Model.Status
+                                </span>
+                            }
+                            else if (Model.Status == "Closed")
+                            {
+                                <span class="badge bg-secondary fs-6">
+                                    <i class="fas fa-lock me-1"></i>@Model.Status
+                                </span>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-8">
+                            <h5 class="mb-2">@Model.Title</h5>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            @if (Model.Priority == "High")
+                            {
+                                <span class="badge bg-danger fs-6">
+                                    <i class="fas fa-exclamation-triangle me-1"></i>High Priority
+                                </span>
+                            }
+                            else if (Model.Priority == "Medium")
+                            {
+                                <span class="badge bg-warning fs-6">
+                                    <i class="fas fa-exclamation-circle me-1"></i>Medium Priority
+                                </span>
+                            }
+                            else if (Model.Priority == "Low")
+                            {
+                                <span class="badge bg-success fs-6">
+                                    <i class="fas fa-info-circle me-1"></i>Low Priority
+                                </span>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="text-muted mb-2">Description</h6>
+                        <div class="bg-light p-3 rounded">
+                            @Html.Raw(Model.Description.Replace("\n", "<br>"))
+                        </div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.Category))
+                    {
+                        <div class="mb-3">
+                            <span class="fw-bold">Category:</span>
+                            <span class="badge bg-light text-dark ms-2">@Model.Category</span>
+                        </div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.AssignedTo))
+                    {
+                        <div class="mb-3">
+                            <span class="fw-bold">Assigned to:</span>
+                            <span class="text-primary ms-2">@Model.AssignedTo</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Ticket Information Panel -->
+        <div class="col-lg-4 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="mb-0">
+                        <i class="fas fa-info-circle me-2"></i>Ticket Information
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-2">
+                        <div class="col-5 text-muted">Created:</div>
+                        <div class="col-7">
+                            <div>@Model.CreatedAt.ToString("MMM dd, yyyy")</div>
+                            <div class="small text-muted">@Model.CreatedAt.ToString("HH:mm")</div>
+                        </div>
+                    </div>
+                    
+                    @if (Model.UpdatedAt.HasValue)
+                    {
+                        <div class="row mb-2">
+                            <div class="col-5 text-muted">Updated:</div>
+                            <div class="col-7">
+                                <div>@Model.UpdatedAt.Value.ToString("MMM dd, yyyy")</div>
+                                <div class="small text-muted">@Model.UpdatedAt.Value.ToString("HH:mm")</div>
+                            </div>
+                        </div>
+                    }
+
+                    <hr>
+                    
+                    <div class="row mb-2">
+                        <div class="col-5 text-muted">Status:</div>
+                        <div class="col-7">@Model.Status</div>
+                    </div>
+                    
+                    <div class="row mb-2">
+                        <div class="col-5 text-muted">Priority:</div>
+                        <div class="col-7">@Model.Priority</div>
+                    </div>
+                    
+                    @if (!string.IsNullOrEmpty(Model.Category))
+                    {
+                        <div class="row mb-2">
+                            <div class="col-5 text-muted">Category:</div>
+                            <div class="col-7">@Model.Category</div>
+                        </div>
+                    }
+
+                    @if (Model.Comments?.Any() == true)
+                    {
+                        <hr>
+                        <div class="row">
+                            <div class="col-5 text-muted">Comments:</div>
+                            <div class="col-7">
+                                <span class="badge bg-primary">@Model.Comments.Count</span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h6 class="mb-0">
+                        <i class="fas fa-bolt me-2"></i>Quick Actions
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a asp-action="MyTickets" class="btn btn-outline-secondary btn-sm">
+                            <i class="fas fa-arrow-left me-2"></i>Back to My Tickets
+                        </a>
+                        <a asp-action="CreateTicket" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-plus me-2"></i>Create New Ticket
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comments Section -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-comments me-2"></i>Comments
+                        @if (Model.Comments?.Any() == true)
+                        {
+                            <span class="badge bg-primary ms-2">@Model.Comments.Count</span>
+                        }
+                    </h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.Comments?.Any() == true)
+                    {
+                        <div class="comments-list mb-4">
+                            @foreach (var comment in Model.Comments.OrderBy(c => c.CreatedAt))
+                            {
+                                <div class="comment-item mb-3 p-3 bg-light rounded">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div class="fw-bold text-primary">
+                                            <i class="fas fa-user-circle me-1"></i>
+                                            @(comment.CreatedBy == Model.CreatedBy ? "You" : "Support Team")
+                                        </div>
+                                        <small class="text-muted">
+                                            @comment.CreatedAt.ToString("MMM dd, yyyy HH:mm")
+                                        </small>
+                                    </div>
+                                    <div class="comment-content">
+                                        @Html.Raw(comment.Content.Replace("\n", "<br>"))
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4 text-muted">
+                            <i class="fas fa-comment fa-2x mb-3"></i>
+                            <p class="mb-0">No comments yet. Add a comment to start the conversation!</p>
+                        </div>
+                    }
+
+                    <!-- Add Comment Form -->
+                    @if (Model.Status != "Closed")
+                    {
+                        <div class="add-comment-section">
+                            <h6 class="mb-3">Add a Comment</h6>
+                            <form asp-action="AddComment" method="post">
+                                <input type="hidden" name="ticketId" value="@Model.Id" />
+                                
+                                <div class="mb-3">
+                                    <textarea name="commentContent" class="form-control" rows="4" 
+                                              placeholder="Add your comment here..." required></textarea>
+                                </div>
+                                
+                                <div class="d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane me-2"></i>Add Comment
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            This ticket is closed. Comments cannot be added.
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div class="toast show" role="alert">
+            <div class="toast-header bg-success text-white">
+                <i class="fas fa-check-circle me-2"></i>
+                <strong class="me-auto">Success</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["SuccessMessage"]
+            </div>
+        </div>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div class="toast show" role="alert">
+            <div class="toast-header bg-danger text-white">
+                <i class="fas fa-exclamation-circle me-2"></i>
+                <strong class="me-auto">Error</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                @TempData["ErrorMessage"]
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .comment-item {
+        border-left: 4px solid var(--bs-primary);
+    }
+    
+    .comments-list {
+        max-height: 600px;
+        overflow-y: auto;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        // Auto-hide toasts after 5 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const toasts = document.querySelectorAll('.toast');
+            toasts.forEach(toast => {
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 5000);
+            });
+        });
+
+        // Auto-resize comment textarea
+        document.addEventListener('DOMContentLoaded', function() {
+            const textarea = document.querySelector('textarea[name="commentContent"]');
+            if (textarea) {
+                textarea.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = (this.scrollHeight) + 'px';
+                });
+            }
+        });
+    </script>
+}

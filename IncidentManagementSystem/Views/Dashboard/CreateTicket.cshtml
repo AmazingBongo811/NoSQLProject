@@ -1,0 +1,124 @@
+@model IncidentManagementSystem.Models.Ticket
+@{
+    ViewData["Title"] = "Create New Ticket";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i class="fas fa-plus-circle me-2"></i>Create New Ticket
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="CreateTicket" method="post">
+                        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-8">
+                                <label asp-for="Title" class="form-label">
+                                    <i class="fas fa-heading me-1"></i>Title <span class="text-danger">*</span>
+                                </label>
+                                <input asp-for="Title" class="form-control" placeholder="Brief description of the issue" required />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-4">
+                                <label asp-for="Priority" class="form-label">
+                                    <i class="fas fa-exclamation-triangle me-1"></i>Priority <span class="text-danger">*</span>
+                                </label>
+                                <select asp-for="Priority" class="form-select" required>
+                                    <option value="">Select Priority</option>
+                                    <option value="Low">Low</option>
+                                    <option value="Medium" selected>Medium</option>
+                                    <option value="High">High</option>
+                                </select>
+                                <span asp-validation-for="Priority" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">
+                                <i class="fas fa-align-left me-1"></i>Description <span class="text-danger">*</span>
+                            </label>
+                            <textarea asp-for="Description" class="form-control" rows="5" 
+                                      placeholder="Provide detailed information about the issue, including steps to reproduce, expected behavior, and actual behavior" required></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                            <div class="form-text">Be as specific as possible to help our team resolve your issue quickly.</div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label asp-for="Category" class="form-label">
+                                    <i class="fas fa-tags me-1"></i>Category
+                                </label>
+                                <select asp-for="Category" class="form-select">
+                                    <option value="">Select Category</option>
+                                    <option value="Hardware">Hardware Issue</option>
+                                    <option value="Software">Software Issue</option>
+                                    <option value="Network">Network Issue</option>
+                                    <option value="Access">Access Request</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <span asp-validation-for="Category" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">
+                                    <i class="fas fa-info-circle me-1"></i>Additional Information
+                                </label>
+                                <div class="form-text">
+                                    <ul class="mb-0">
+                                        <li>Include error messages if any</li>
+                                        <li>Mention affected systems or applications</li>
+                                        <li>Specify urgency and business impact</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card bg-light mb-3">
+                            <div class="card-body">
+                                <h6 class="card-title">
+                                    <i class="fas fa-lightbulb me-2 text-warning"></i>Tips for Better Support
+                                </h6>
+                                <ul class="mb-0 small">
+                                    <li><strong>Be specific:</strong> Include exact error messages and steps you took</li>
+                                    <li><strong>Provide context:</strong> When did the issue start? What changed recently?</li>
+                                    <li><strong>Include screenshots:</strong> Visual information helps us understand the issue</li>
+                                    <li><strong>Set appropriate priority:</strong> High priority is reserved for critical business-impacting issues</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane me-2"></i>Create Ticket
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        // Auto-resize textarea
+        document.addEventListener('DOMContentLoaded', function() {
+            const textarea = document.querySelector('textarea[asp-for="Description"]');
+            if (textarea) {
+                textarea.addEventListener('input', function() {
+                    this.style.height = 'auto';
+                    this.style.height = (this.scrollHeight) + 'px';
+                });
+            }
+        });
+    </script>
+}

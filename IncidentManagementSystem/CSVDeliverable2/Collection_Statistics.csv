@@ -1,0 +1,6 @@
+Collection,DocumentCount,ExportTimestamp,Description
+Users,50,2024-10-27 18:45:00,"User collection contains 50 records with roles (Regular/ServiceDesk) across 10 departments"
+Tickets,28,2024-10-27 18:45:00,"Ticket collection contains 28 incident records with various statuses, priorities, and categories"
+TicketActivities,47,2024-10-27 18:45:00,"Activity log contains 47 audit trail entries tracking ticket lifecycle events"
+TicketComments,38,2024-10-27 18:45:00,"Comment collection contains 38 communication records between users and service desk"
+Departments,10,2024-10-27 18:45:00,"Department collection includes IT, HR, Finance, Operations, Marketing, Customer Service, Sales, Legal, Procurement, Facilities"

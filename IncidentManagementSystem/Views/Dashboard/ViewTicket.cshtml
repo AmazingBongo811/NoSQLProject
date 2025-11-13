@@ -1,0 +1,153 @@
+@model IncidentManagementSystem.Models.Ticket
+@{
+    ViewData["Title"] = "View Ticket";
+}
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2><i class="fas fa-ticket-alt me-2"></i>Ticket Details</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Ticket #@Model.Id?.Substring(Model.Id.Length - 6)</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Ticket Information Card -->
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">@Model.Title</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Status:</strong>
+                            <span class="badge bg-@(Model.Status == TicketStatus.Open ? "warning" : 
+                                                      Model.Status == TicketStatus.Resolved ? "success" : "secondary")">
+                                @Model.Status
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Priority:</strong>
+                            <span class="badge bg-@(Model.Priority == TicketPriority.Critical ? "danger" : 
+                                                      Model.Priority == TicketPriority.High ? "warning" : 
+                                                      Model.Priority == TicketPriority.Medium ? "info" : "secondary")">
+                                @Model.Priority
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Category:</strong> @Model.Category
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Created:</strong> @Model.CreatedAt.ToString("yyyy-MM-dd HH:mm")
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Reporter:</strong> @Model.Reporter.FullName
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Assigned To:</strong> 
+                            @if (Model.Assignee != null)
+                            {
+                                @Model.Assignee.FullName
+                            }
+                            else
+                            {
+                                <span class="text-muted">Unassigned</span>
+                            }
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="mb-3">
+                        <strong>Description:</strong>
+                        <p class="mt-2">@Model.Description</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-comments me-2"></i>Comments (@Model.Comments.Count)</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.Comments.Any())
+                    {
+                        @foreach (var comment in Model.Comments.OrderByDescending(c => c.Timestamp))
+                        {
+                            <div class="comment mb-3 pb-3 border-bottom">
+                                <div class="d-flex justify-content-between">
+                                    <strong>@comment.Author.FullName</strong>
+                                    <small class="text-muted">@comment.Timestamp.ToString("yyyy-MM-dd HH:mm")</small>
+                                </div>
+                                <p class="mt-2 mb-0">@comment.Content</p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p class="text-muted">No comments yet.</p>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <!-- Actions Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-cog me-2"></i>Actions</h5>
+                </div>
+                <div class="card-body">
+                    <a href="@Url.Action("Index", "Dashboard")" class="btn btn-secondary w-100 mb-2">
+                        <i class="fas fa-arrow-left me-1"></i>Back to Dashboard
+                    </a>
+                    
+                    @if (Model.Status != TicketStatus.Closed)
+                    {
+                        <button class="btn btn-primary w-100 mb-2">
+                            <i class="fas fa-comment me-1"></i>Add Comment
+                        </button>
+                    }
+                </div>
+            </div>
+
+            <!-- Activity Log Card -->
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-history me-2"></i>Activity Log</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.Activities.Any())
+                    {
+                        <div class="activity-log">
+                            @foreach (var activity in Model.Activities.OrderByDescending(a => a.Timestamp).Take(5))
+                            {
+                                <div class="activity-item mb-2">
+                                    <small class="text-muted">@activity.Timestamp.ToString("yyyy-MM-dd HH:mm")</small>
+                                    <p class="mb-0">@activity.Action</p>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted">No activity yet.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

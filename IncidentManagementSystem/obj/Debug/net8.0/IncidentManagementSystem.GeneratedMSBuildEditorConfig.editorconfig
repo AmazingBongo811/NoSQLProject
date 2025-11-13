@@ -1,0 +1,91 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = IncidentManagementSystem
+build_property.RootNamespace = IncidentManagementSystem
+build_property.ProjectDir = /Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Auth/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aC9BY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Dashboard/CreateTicket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFzaGJvYXJkL0NyZWF0ZVRpY2tldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFzaGJvYXJkL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Dashboard/MyTickets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFzaGJvYXJkL015VGlja2V0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Dashboard/ViewTicket.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFzaGJvYXJkL1ZpZXdUaWNrZXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Search/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VhcmNoL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/ServiceDesk/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VydmljZURlc2svSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Tickets/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0cy9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Tickets/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0cy9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Tickets/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlja2V0cy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/aronlakatos/Library/Mobile Documents/com~apple~CloudDocs/School/Uni/Inholland/Y2/Y2-T1/NoSQL/Project/project-app/NoSQLProject/IncidentManagementSystem/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-mb7cyil1dg

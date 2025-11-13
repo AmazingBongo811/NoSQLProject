@@ -1,0 +1,124 @@
+@model List<IncidentManagementSystem.Models.Ticket>
+@{
+    ViewData["Title"] = "My Tickets";
+    var isServiceDesk = ViewBag.IsServiceDesk ?? false;
+}
+
+<div class="container-fluid py-4">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h2><i class="fas fa-ticket-alt me-2"></i>@(isServiceDesk ? "All Tickets" : "My Tickets")</h2>
+            <p class="text-muted">View and manage @(isServiceDesk ? "all support" : "your") tickets</p>
+        </div>
+        <div class="col-md-4 text-end">
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>Create New Ticket
+            </a>
+        </div>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>@TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i>
+            @if (isServiceDesk)
+            {
+                <span>No tickets found in the system.</span>
+            }
+            else
+            {
+                <span>You haven't created any tickets yet. <a asp-action="Create">Create your first ticket</a></span>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                @if (isServiceDesk)
+                                {
+                                    <th>Reporter</th>
+                                }
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var ticket in Model)
+                            {
+                                <tr>
+                                    <td><code>#@ticket.Id?.Substring(ticket.Id.Length - 6)</code></td>
+                                    <td>
+                                        <a asp-action="Details" asp-route-id="@ticket.Id" class="text-decoration-none">
+                                            @ticket.Title
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-secondary">@ticket.Category</span>
+                                    </td>
+                                    <td>
+                                        @{
+                                            var priorityClass = ticket.Priority switch
+                                            {
+                                                IncidentManagementSystem.Models.TicketPriority.Critical => "danger",
+                                                IncidentManagementSystem.Models.TicketPriority.High => "warning",
+                                                IncidentManagementSystem.Models.TicketPriority.Medium => "info",
+                                                _ => "secondary"
+                                            };
+                                        }
+                                        <span class="badge bg-@priorityClass">@ticket.Priority</span>
+                                    </td>
+                                    <td>
+                                        @{
+                                            var statusClass = ticket.Status switch
+                                            {
+                                                IncidentManagementSystem.Models.TicketStatus.Open => "primary",
+                                                IncidentManagementSystem.Models.TicketStatus.Resolved => "success",
+                                                IncidentManagementSystem.Models.TicketStatus.Closed => "secondary",
+                                                _ => "secondary"
+                                            };
+                                        }
+                                        <span class="badge bg-@statusClass">@ticket.Status</span>
+                                    </td>
+                                    @if (isServiceDesk)
+                                    {
+                                        <td>@ticket.Reporter?.FullName</td>
+                                    }
+                                    <td>@ticket.CreatedAt.ToString("MMM dd, yyyy")</td>
+                                    <td>
+                                        <a asp-action="Details" asp-route-id="@ticket.Id" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-eye"></i> View
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <p class="text-muted">
+                <i class="fas fa-ticket-alt me-2"></i>Showing @Model.Count ticket(s)
+            </p>
+        </div>
+    }
+</div>

@@ -1,0 +1,185 @@
+@model IncidentManagementSystem.ViewModels.ServiceDeskDashboardViewModel
+@{
+    ViewData["Title"] = "Service Desk Dashboard";
+}
+
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2><i class="fas fa-headset me-2"></i>Service Desk Dashboard</h2>
+            <p class="text-muted">Manage all tickets and support requests</p>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card border-left-primary shadow">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Tickets</div>
+                            <div class="h5 mb-0 font-weight-bold">@Model.TotalTickets</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-ticket-alt fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card border-left-warning shadow">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Open Tickets</div>
+                            <div class="h5 mb-0 font-weight-bold">@Model.OpenTickets</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-folder-open fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card border-left-success shadow">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Resolved</div>
+                            <div class="h5 mb-0 font-weight-bold">@Model.ResolvedTickets</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-check-circle fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card border-left-danger shadow">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Urgent</div>
+                            <div class="h5 mb-0 font-weight-bold">@Model.UrgentTickets</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Tickets Table -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-list me-2"></i>Recent Tickets</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.RecentTickets.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Reporter</th>
+                                        <th>Status</th>
+                                        <th>Priority</th>
+                                        <th>Assigned To</th>
+                                        <th>Created</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var ticket in Model.RecentTickets)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <span class="badge bg-secondary">#@ticket.Id.Substring(ticket.Id.Length - 6)</span>
+                                            </td>
+                                            <td>
+                                                <strong>@ticket.Title</strong>
+                                            </td>
+                                            <td>@ticket.Reporter.FullName</td>
+                                            <td>
+                                                <span class="badge bg-@(ticket.Status == TicketStatus.Open ? "warning" : 
+                                                                          ticket.Status == TicketStatus.Resolved ? "success" : "secondary")">
+                                                    @ticket.Status
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-@(ticket.Priority == TicketPriority.Critical ? "danger" : 
+                                                                          ticket.Priority == TicketPriority.High ? "warning" : 
+                                                                          ticket.Priority == TicketPriority.Medium ? "info" : "secondary")">
+                                                    @ticket.Priority
+                                                </span>
+                                            </td>
+                                            <td>
+                                                @if (ticket.Assignee != null)
+                                                {
+                                                    @ticket.Assignee.FullName
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">Unassigned</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <small>@ticket.CreatedAt.ToString("yyyy-MM-dd HH:mm")</small>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("ViewTicket", "Dashboard", new { id = ticket.Id })" class="btn btn-sm btn-outline-primary">
+                                                    <i class="fas fa-eye me-1"></i>View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">No tickets found</h5>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .border-left-primary {
+        border-left: 4px solid #4e73df;
+    }
+    .border-left-success {
+        border-left: 4px solid #1cc88a;
+    }
+    .border-left-warning {
+        border-left: 4px solid #f6c23e;
+    }
+    .border-left-danger {
+        border-left: 4px solid #e74a3b;
+    }
+    .text-xs {
+        font-size: 0.7rem;
+    }
+    .text-gray-300 {
+        color: #dddfeb;
+    }
+</style>

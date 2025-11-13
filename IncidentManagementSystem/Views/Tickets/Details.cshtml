@@ -1,0 +1,95 @@
+@model IncidentManagementSystem.Models.Ticket
+@{
+    ViewData["Title"] = "Ticket Details";
+}
+
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col">
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i>Back to Tickets
+            </a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">
+                <i class="fas fa-ticket-alt me-2"></i>Ticket #@(Model.Id?.Substring(Model.Id.Length - 6))
+            </h4>
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-md-8">
+                    <h5>@Model.Title</h5>
+                    <p class="text-muted">@Model.Description</p>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <strong>Status:</strong>
+                        @{
+                            var statusClass = Model.Status switch
+                            {
+                                IncidentManagementSystem.Models.TicketStatus.Open => "primary",
+                                IncidentManagementSystem.Models.TicketStatus.Resolved => "success",
+                                IncidentManagementSystem.Models.TicketStatus.Closed => "secondary",
+                                _ => "secondary"
+                            };
+                        }
+                        <span class="badge bg-@statusClass">@Model.Status</span>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Priority:</strong>
+                        @{
+                            var priorityClass = Model.Priority switch
+                            {
+                                IncidentManagementSystem.Models.TicketPriority.Critical => "danger",
+                                IncidentManagementSystem.Models.TicketPriority.High => "warning",
+                                IncidentManagementSystem.Models.TicketPriority.Medium => "info",
+                                _ => "secondary"
+                            };
+                        }
+                        <span class="badge bg-@priorityClass">@Model.Priority</span>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Category:</strong>
+                        <span class="badge bg-secondary">@Model.Category</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>Reporter</h6>
+                    <p>
+                        <i class="fas fa-user me-2"></i>@Model.Reporter?.FullName<br />
+                        <i class="fas fa-envelope me-2"></i>@Model.Reporter?.Email
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h6>Dates</h6>
+                    <p>
+                        <strong>Created:</strong> @Model.CreatedAt.ToString("MMMM dd, yyyy HH:mm")<br />
+                        <strong>Last Updated:</strong> @Model.UpdatedAt.ToString("MMMM dd, yyyy HH:mm")
+                    </p>
+                </div>
+            </div>
+
+            @if (Model.Assignee != null)
+            {
+                <hr />
+                <div class="row">
+                    <div class="col">
+                        <h6>Assigned To</h6>
+                        <p>
+                            <i class="fas fa-user-tie me-2"></i>@Model.Assignee.FullName<br />
+                            <i class="fas fa-envelope me-2"></i>@Model.Assignee.Email
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
